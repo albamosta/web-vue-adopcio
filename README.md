@@ -1,44 +1,103 @@
-# web-vue-adopcio
+# Web Vue Adopció - Peluts
 
-This template should help get you started developing with Vue 3 in Vite.
+## Descripció
 
-## Recommended IDE Setup
+Aquest projecte és una aplicació web feta amb Vue sobre una protectora d'animals. Permet consultar animals disponibles per a l'adopció i veure informació de contacte de la protectora.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Instal·lació i execució
 
-## Recommended Browser Setup
+Instal·lar les dependències:
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Executar el projecte en local:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+Generar la versió de producció:
 
-```sh
+```bash
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+Publicar a Firebase:
 
-```sh
-npm run lint
+```bash
+firebase deploy
 ```
+
+## Components propis
+
+### BarraNavegacio.vue
+
+Mostra l'encapçalament de la pàgina amb el nom i la informació principal de la protectora.
+
+### TargetaAnimal.vue
+
+Mostra la informació de cada animal, com la foto, el nom, l'espècie, l'edat i la descripció.
+
+### PeuPagina.vue
+
+Mostra la informació de contacte i el peu de pàgina.
+
+## Exemple de comunicació amb props
+
+Component pare:
+
+AnimalsView.vue
+
+Component fill:
+
+TargetaAnimal.vue
+
+Dades que es passen mitjançant props:
+
+- nom
+- specie
+- edat
+- descripcio
+- imatge
+
+AnimalsView llegeix les dades dels animals des de Firestore i les passa al component TargetaAnimal perquè les mostri.
+
+## Rutes
+
+### /inici
+
+Mostra la pàgina principal de la protectora.
+
+### /animals
+
+Mostra els animals disponibles per a l'adopció.
+
+### /contacte
+
+Mostra la informació de contacte de la protectora.
+
+## Firestore
+
+Col·lecció utilitzada:
+
+animals
+
+Camps principals:
+
+- nom
+- specie
+- edat
+- descripcio
+- imatge
+
+Les dades de la col·lecció es mostren a la vista AnimalsView.vue.
+
+## Repositori GitHub
+
+https://github.com/albamosta/web-vue-adopcio
+
+## Web publicada amb Firebase Hosting
+
+https://web-vue-adopcio.web.app
